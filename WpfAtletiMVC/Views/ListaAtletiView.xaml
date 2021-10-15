@@ -11,6 +11,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
@@ -18,14 +19,24 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label Grid.Row="0" Grid.Column="0">Lista Atleti</Label>
-        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0">
+
+        <Menu x:Name="menu"  Grid.Row="0">
+            <MenuItem Header="File" Click="MenuItem_Click_1">
+                <MenuItem Header="exit" />
+            </MenuItem>
+            <MenuItem Header="?">
+                <MenuItem Header="Info" Click="MenuItem_Click" />
+            </MenuItem>
+        </Menu>
+
+        <Label Grid.Row="1" Grid.Column="0">Lista Atleti</Label>
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="0">
             <Button Content="Nuovo" Click="Nuovo_Click"/>
             <Button Content="Modifica" Margin="10 0"/>
             <Button Content="Elimina" Click="Elimina_Click"/>
         </StackPanel>
 
-        <DataGrid x:Name="AtletiDataGrid" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding atleti}" SelectedItem="{Binding atletaSelezionato}" AutoGenerateColumns="False" CanUserDeleteRows="True" IsReadOnly="True" >
+        <DataGrid x:Name="AtletiDataGrid" Grid.Row="2" Grid.Column="0" ItemsSource="{Binding atleti}" SelectedItem="{Binding atletaSelezionato}" AutoGenerateColumns="False" CanUserDeleteRows="True" IsReadOnly="True" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Codice" Width="50" Binding="{Binding Codice}"/>
                 <DataGridTextColumn Header="Cognome" Width="*" Binding="{Binding Cognome}" />
