@@ -37,5 +37,10 @@ namespace WpfAtletiMVC.Models
             a.Codice = atleti.Max(a => a.Codice) + 1;
             atleti.Add(a);
         }
+
+        public void elimina(Atleta atleta)
+        {
+            atleti.Remove(atleta);
+        }
     }
 }

@@ -81,7 +81,16 @@ namespace WpfAtletiMVC.Views
 
         private void Elimina_Click(object sender, RoutedEventArgs e)
         {
-
+            if(_atletaSelezionato != null)
+            {
+                atleti.Remove(_atletaSelezionato);
+                model.elimina(_atletaSelezionato);
+            }
+            else
+            {
+                MessageBox.Show("Selezionare un atleta!");
+            }
+            
         }
     }
 }
